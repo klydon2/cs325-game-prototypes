@@ -1,4 +1,8 @@
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game', { preload: preload, create: create, preRender: preRender, render: render });
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game', { 
+    preload: preload,
+    create: create, 
+    preRender: preRender, 
+    render: render });
 
 function preload() {
 
@@ -137,7 +141,7 @@ function render() {
 
     if (drawLine)
     {
-        game.debug.geom(line);
+        //game.debug.geom(line);
     }
 
     game.debug.text('Time until event: ' + timer.duration.toFixed(0), 32, 32);
@@ -145,9 +149,11 @@ function render() {
     game.debug.text('Catch Count: ' + catchCounter, game.width-160, 32);
     game.debug.text('Miss Count: ' + missCounter, game.width-160, 64);
 
-    if(missCounter>=10)
+    if(missCounter>=1)
     {
-        this.game.restart();
+        game.add.text('You Lose!');
+        
+   
     }
 
 

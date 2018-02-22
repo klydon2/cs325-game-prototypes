@@ -27,25 +27,21 @@ body
 <ul>
 <li><strong>Originality:</strong>
 What is original about your game? 
-Not very much. Most of the code is borrowed heavily from 
-https://phaser.io/examples/v2/p2-physics/mouse-spring
-with smatterings from the making your first Phaser game tutorial.
-My additions were merely, the background, the player sprite and the ground.
+This time around I tried to work with collision boxes and score keeping.
 </li>
 
 <li><strong>Technical Merit:</strong>
 What is interesting about your game technology? 
 The physics used in the mouse spring is very intuitive and fun to play
 with so I wanted to figure out how to use it well enough to implement one
-of my physical games from one of the previous assignments. I should have 
-known better!
+of my physical games from one of the previous assignments. For this game, I used collision detection to simulate catching raindrops in a bucket. The random number generator to vary the 
+position on the x axis led to some very amusing results.
+
 </li>
 
 <li><strong>Prototype Postmortem:</strong>
 What did you learn from this prototype?
-That aiming low and succeeding is preferable to failure.
-What was the easiest or hardest part of making it?
-Coming to terms with the lack of compiler-based error checking.
+Collision groups make event handling much easier once you figure them out. Restarting a game is hard without figuring out game.state. Math.random can be very interesting when used incorrectly.
 </li>
 
 <li><strong>Prototype Assets:</strong>
@@ -53,28 +49,35 @@ Did you make your prototype assets from scratch? Did you borrow them? Cite your 
 sky.png + ground.png - http://phaser.io/tutorials/making-your-first-phaser-game/part2
 Most of the physics based code - https://phaser.io/examples/v2/p2-physics/mouse-spring
 enemy-bullet.png - https://phaser.io/examples/v2/p2-physics/mouse-spring
-ashes.png - http://www.stardust-memorials.com/assets/images/metalaoraj2/mao_301_a.jpg
+cloud.png - http://scribblenauts.wikia.com/wiki/Cloud
+rain.png - http://clipartpost.com/raindrop-clipart_4998/
+bucket.png - https://vignette.wikia.nocookie.net/clubpenguin/images/a/a4/Feeding_Bucket.png/revision/latest?cb=20160918023654&format=original
+
 <ul>
-<li>Bouncing Phaser image: <a href="https://phaser.io/download/logo">Phaser logo</a></li>
+<li>
 </ul>
 </li>
 
 <li><strong>Prototype Closest Other Game:</strong>
 Which other game most closely resembles your game? If you are borrowing code from a Phaser Example, you must say so here. If you borrow code from elsewhere, you must say so here.
 https://phaser.io/examples/v2/p2-physics/mouse-spring
+https://phaser.io/docs/2.6.2/Phaser.Text.html
+https://phaser.io/examples/v2/time/custom-timer
+https://phaser.io/examples/v2/p2-physics/collision-groups
 </li>
 
 <li><strong>High Concept:</strong>
-Toss the Urn containing your grandmother's ashes around in the sky.
+Catch the rain! Drink the rain! Don't die of thirst!
 </li>
 
 <li><strong>Theme:</strong>
 State which of the Storymatic themes you used.
-Grandmother's ashes
+Catch
 </li>
 
 <li><strong>Mandated Variety:</strong>
 State which input, randomness, genre, and play style you used in this prototype.
+Mouse based input. A lot of randomness. Achiever play style
 </li>
 
 <li><strong>Prototype Goal:</strong>
@@ -89,19 +92,18 @@ Casual Fun.
 
 <li><strong>Gameplay:</strong>
 A paragraph describing the actions the player can perform, the system dynamics, and the core mechanic. Include a concise explanation of the prototype’s inputs and their expected effects (how to play). You can also describe game play that is not in the prototype. You may include mock-up images for parts of the game not in the prototype.
-You can use your mouse to throw an urn around the screen. There is a circle of radius 20 which you can click on with your pointer in order to throw the urn. The pointer consists of a smaller circle of radius 10. My original plan was to have goal posts from American Football so that you could try
-to get a field goal with your grandmother's ashes.
+Mouse based input to drag the bucket around the screen to catch raindrops. Keeps count of how many you catch and how many hit the ground. You lose once you miss ten.
 </li>
 
 <li><strong>Strategies:</strong>
 What player strategies do you expect will be effective at playing this game?
-There are no particular strategies at this time.
+Catch the water as low as possible as the rain loses momentum as it bounces off the walls.
 </li>
 
 <li><strong>Story/Setting/Premise:</strong>
 A paragraph about the world your game is set in and who the characters are. What makes the game world and its occupants unique and interesting? Do the tokens represent something? If the game has a backstory, mention it here. If the game is abstract, then say so.
 How will the dramatic tension interact with the gameplay tension?
-Essentially it runs on shock value much like Kitten Cannon. There was no real thought given to worldbuilding beforehand.
+There isn't really much in the way of a story to be honest. Collect water in a bucket to drink it.
 </li>
 
 <li><strong>Target Audience:</strong>
@@ -111,7 +113,7 @@ Children, or those with the mind of one.
 
 <li><strong>Play Time:</strong>
 How long does your game take to play?
-As long as one wishes to continue. 
+As long as one manages to catch water.
 </li>
 
 </ul>
