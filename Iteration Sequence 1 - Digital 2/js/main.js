@@ -154,8 +154,8 @@ function create()
 
     //Add Sounds
     soundBugDeath = game.add.audio('squish');
-    soundScream = game.add.audio('scream');
-    soundSaw = game.add.audio('sawdio', 0.02);
+    soundScream = game.add.audio('scream', 0.2);
+    soundSaw = game.add.audio('sawdio', 0.09);
     music = game.add.audio('diablo',0.25);
     music.play();
 };
