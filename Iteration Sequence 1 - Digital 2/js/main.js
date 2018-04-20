@@ -28,6 +28,8 @@ var playerCollisionGroup;
 var groundCollisionGroup;
 var bulletCollisionGroup;
 var wallsCollision;
+var interval;
+var timeElapsed;
 var infestationLevel=0;
 var maggotCount=0;
 var killCount=0;
@@ -73,15 +75,15 @@ function create()
     game.physics.p2.enable(ground);
     ground.body.static = true;
     ground.body.setCollisionGroup(groundCollisionGroup);
-    ground.body.collides([playerCollisionGroup, maggotCollisionGroup]);
+    ground.body.collides([playerCollisionGroup, maggotCollisionGroup, bulletCollisionGroup]);
 
     //create maggots
     maggots = game.add.group();
     // create timer in order to call timer events which will decrease the interval between maggot drops
     timer = game.time.create(false);
-    interval = 200;
-    timer.loop(interval, makeMaggots,this);
     timer.start();
+    interval = 5;
+    timeElapsed=0;
 
     // create input objects
     cursors = game.input.keyboard.createCursorKeys();
@@ -162,6 +164,13 @@ function create()
 
 function update() {
     maggots.forEachAlive(moveMaggots,this);  //make maggots accelerate to cabin
+    
+    if(timer.seconds >= timeElapsed + interval)
+    {
+        interval = interval*0.9;
+        makeMaggots();
+        timeElapsed = timer.seconds;
+    }
 
     if (cursors.left.isDown) 
     {
@@ -190,10 +199,7 @@ function update() {
 
     if(infestationLevel==100)
     {
-        this.game.paused=true;
-        gameover = game.add.sprite(game.world.width/8,game.world.height/4,'gameover');
-        gameover.inputEnabled = true;
-        gameover.events.onInputDown.add(listener, this);
+        endGame();
     }
 
 };
@@ -244,8 +250,6 @@ function bulletHitMaggot(body1, body2)
     // body 2 is the bullet. body1 is the maggot.
     body1.sprite.destroy();
     soundBugDeath.play();
-    bullet.body.force.x = fireSpeed;
-    bullet.body.force.y = fireSpeed;
     killCount++;
     maggotCount--;
 }
@@ -261,7 +265,7 @@ function shoot()
         game.physics.p2.enable(bullet,false);
         bullet.body.setCollisionGroup(bulletCollisionGroup);
         bullet.body.collideWorldBounds = false;
-        bullet.body.collides([maggotCollisionGroup,groundCollisionGroup]);
+        bullet.body.collides([maggotCollisionGroup,groundCollisionGroup,bulletCollisionGroup]);
         bullet.body.collides(wallCollisionGroup, killBullet,this)
         bullet.body.force.x = Math.cos(cannon.rotation) * fireSpeed;
         bullet.body.force.y = Math.sin(cannon.rotation) * fireSpeed;
@@ -275,7 +279,7 @@ function render()
     {
 
         game.debug.text('Infestation Level :% ' + infestationLevel, game.width-250,(game.height-32));
-        game.debug.text('Killed: ' + bulletCount, game.width-250, (game.height-16));
+        game.debug.text('Killed: ' + interval, game.width-250, (game.height-16));
 
     }
 
@@ -283,6 +287,13 @@ function render()
 function killBullet(body1,body2){
     body1.sprite.destroy();
     bulletCount--;
+}
+
+function endGame()
+{
+    gameover = game.add.sprite(game.world.width/8,game.world.height/4,'gameover');
+    this.game.paused=true;
+    gameover.inputEnabled = true;
 }
 
 
