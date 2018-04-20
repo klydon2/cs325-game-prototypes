@@ -11,7 +11,7 @@ function preload()
     game.load.image('cabin', 'assets/cabin.png');
     game.load.image('maggot', 'assets/maggot.png');
     game.load.image('saw', 'assets/saw.png');
-    game.load.image('cannon', 'assets/Cannon.png');
+    game.load.image('cannon', 'assets/cannon.png');
     game.load.image('silhouette', 'assets/oxford.png');
     game.load.audio('squish','assets/squish.wav');
     game.load.audio('sawdio','assets/saw.wav');
