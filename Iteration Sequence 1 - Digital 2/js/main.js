@@ -279,7 +279,7 @@ function render()
     {
 
         game.debug.text('Infestation Level :% ' + infestationLevel, game.width-250,(game.height-32));
-        game.debug.text('Killed: ' + interval, game.width-250, (game.height-16));
+        game.debug.text('Killed: ' + killCount, game.width-250, (game.height-16));
 
     }
 
