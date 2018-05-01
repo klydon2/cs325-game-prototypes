@@ -1,6 +1,7 @@
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game', 
 { preload: preload,
   create: create,
+  render:render,
   update:update });
 
 function preload() 
@@ -22,12 +23,19 @@ var question = {
     question: 'Who is the father of our country?',
     answer1: ['George Washington',true],
     answer2: ['Billy-bob Thornton', false],
-    answer3: ['James Madisson', false]
+    answer3: ['James Madison', false]
    };
 
 
 function create() 
 {
+    game.add.sprite(0, 0, 'Flag');
+    var music = game.add.audio('banner',0.25);
+    music.play();
+    waterAudio = game.add.audio('water');
+    bellAudio = game.add.audio('bell');
+    squishAudio = game.add.audio('squish');
+        
     game.add.sprite(0, 0, 'Flag');
     var text = game.add.text(game.world.centerX, game.world.top + 75, question.question, 
         { 
@@ -44,13 +52,7 @@ function create()
     createAnswers(question.answer1);
     createAnswers(question.answer2);
     createAnswers(question.answer3);
-
-    var music = game.add.audio('banner',0.25);
-    music.play();
-    waterAudio = game.add.audio('water');
-    bellAudio = game.add.audio('bell');
-    squishAudio = game.add.audio('squish');
-
+    
 }
 
 function update() {
@@ -103,7 +105,8 @@ function createAnswers(answer){
     spacing = spacing+100;
 }
 
-function enableText(text,verify) {
+function enableText(text,verify)
+ {
 
     text.anchor.set(0.5);
 
@@ -122,5 +125,28 @@ function enableText(text,verify) {
     else{
         text.events.onInputUp.add(up2,this);
     }
+
+}
+
+function render()
+{
+
+    game.debug.text(counter + '/10', game.width-200,(game.height-32), { 
+        font: "bold 20px Times New Roman ",
+        fill: "#ffff44",
+        align: "center",
+        wordWrap: true,
+        wordWrapWidth: 800 ,
+        strokeThickness: 2
+    });
+
+    game.debug.text('Correct Answers: ' + correct, game.width-200, (game.height-16),{ 
+        font: "bold 20px Times New Roman ",
+        fill: "#ffff44",
+        align: "center",
+        wordWrap: true,
+        wordWrapWidth: 800 ,
+        strokeThickness: 2
+    });
 
 }
