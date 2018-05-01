@@ -9,6 +9,7 @@ function preload()
     game.load.audio('banner','assets/StarSpangledBanner.mp3');
     game.load.audio('bell','assets/bell.mp3')
     game.load.audio('water','assets/waterdroplet.wav')
+    game.load.audio('squish','assets/squish.wav')
 }
 
 var counter = 0;
@@ -16,6 +17,7 @@ var correct = 0;
 var spacing = 0;
 var bellAudio;
 var waterAudio;
+var squishAudio;
 var question = {
     question: 'Who is the father of our country?',
     answer1: ['George Washington',true],
@@ -47,6 +49,7 @@ function create()
     music.play();
     waterAudio = game.add.audio('water');
     bellAudio = game.add.audio('bell');
+    squishAudio = game.add.audio('squish');
 
 }
 
@@ -78,11 +81,12 @@ function up1(item) {
     item.fill = "#ffffff";
     bellAudio.play();
     counter++;
+    correct++;
 }
 function up2(item) {
     item.text = "Incorrect!"; 
     counter++;
-    correct++;
+    squishAudio.play();
 }
 
 function createAnswers(answer){
