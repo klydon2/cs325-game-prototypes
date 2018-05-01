@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Game Number 6</title>
+    <title>Game Number 7</title>
     <script src="js/phaser.js"></script>
     <script src="js/main.js"></script>
 
@@ -22,41 +22,30 @@ body
 <body>
 <div id="game"></div>
 <div id="readme">
-<h2>HandCannon</h2>
+<h2>Who Wants To Be An Americanaire?</h2>
 
 <ul>
 <li><strong>Originality:</strong>
 What is original about your game? 
-<li> I tried to go for more of a game this time around, to my detriment. Collision detection doesn't work at all with the sawblades.(FIXED)
-<li> Found the example for weapons on the phaser site, which does not work at all with P2 physics.(FIXED)
-<li> I suppose the stand out is the general atmosphere I managed to get this time around. (Added Screams when insects get into the house)
-<li> I would prefer a bit more consistancy in my assets but I guess beggers can't be choosers. Added counters and an end game screen. Didn't manage to implement states. F5 is your go-to here
-    my bad.
+<li> Changed format completely this time around. Big mistake. Decided to go for a quiz based game. Phaser + text == disaster.
+<li> Only managed to implement one question and the basic interface for this iteration. Will have around 30 civics questions and a scoring mechanism added by thursday.
+
 </li>
 
 <li><strong>Technical Merit:</strong>
 What is interesting about your game technology? 
-<li> P2 is pretty interesting to work with in general. Though it certainly wasn't designed for 
-    ease of use. The most interesting aspect of it in this particular game is the acceleration
-    towards a single object. This really lends it to defence games and I really wanted to implement it
-    correctly. Maybe next time I will do something similar to build upon it.
+<li> Tried my hand at abstraction in JS to horrendous results. The way in which JS uses 'this' is confusing and the documentation was not made with readability in mind.
 </li>
 
 <li><strong>Prototype Postmortem:</strong>
 What did you learn from this prototype?
-<li> Past suffering really serves its purpose in game design. An awful lot of what I used
-    in the last game came in really useful here. Sadly, there is always something to struggle with
-    when using P2.
-<li> Arcade Physics is generally a better idea. (Still think this is the case)
+<li> Don't try new things for the last project of the class.
+<li> EventListeners are strange, JS is strange, abstraction is hard work.
 </li>
 
 <li><strong>Prototype Assets:</strong>
 Did you make your prototype assets from scratch? Did you borrow them? Cite your sources here.
-<li>sky.png + ground.png - http://phaser.io/tutorials/making-your-first-phaser-game/part2
-<li>Most of the physics based code - https://phaser.io/examples/v2/p2-physics/mouse-spring
-<li>cloud.png - http://scribblenauts.wikia.com/wiki/Cloud
-<li>bucket.png - https://vignette.wikia.nocookie.net/clubpenguin/images/a/a4/Feeding_Bucket.png/revision/latest?cb=20160918023654&format=original
-<li>Most of the sprites used - https://phaser.io/examples/
+<li>http://standardflags.com/shop/american-flag/ 
 
 
 <ul>
@@ -66,15 +55,12 @@ Did you make your prototype assets from scratch? Did you borrow them? Cite your 
 
 <li><strong>Prototype Closest Other Game:</strong>
 Which other game most closely resembles your game? If you are borrowing code from a Phaser Example, you must say so here. If you borrow code from elsewhere, you must say so here.
-<li>https://phaser.io/examples/v2/p2-physics/mouse-spring
-<li>https://phaser.io/docs/2.6.2/Phaser.Text.html
-<li>https://phaser.io/examples/v2/time/custom-timer
-<li>https://phaser.io/examples/v2/p2-physics/collision-groups
-<li>https://phaser.io/examples/v2/p2-physics/accelerate-to-object
+<li>https://phaser.io/examples/v2/text/text-events
+
 </li>
 
 <li><strong>High Concept:</strong>
-Kill the alien insects. Don't die!
+Pass the test! Become a Citizen!
 </li>
 
 <li><strong>Theme:</strong>
@@ -84,49 +70,44 @@ State which of the Storymatic themes you used.
 
 <li><strong>Mandated Variety:</strong>
 State which input, randomness, genre, and play style you used in this prototype.
-<li>Keyboard based input, skill based, Castle Defence, Achiever Playstyle
+<li>Mouse based input, knowledge based, Quiz, Achiever Playstyle
 </li>
 
 <li><strong>Prototype Goal:</strong>
 What game mechanic is this prototype evaluating?
-<li>Physics based control system, collision detection, proper asset trimming.
-<li> time based events, "heat" seeking enemy projectiles.
-<li> made an attempt at using the weapons class in phaser. Failed to get it running in P2. (Fixed)
+<li> Text based quiz formatting and mouse event detection.
 </li>
 
 <li><strong>Player Experience Goals:</strong>
 What experience do you want players to have when playing your game?
-<li>Casual Fun.
+<li> Educational
 </li>
 
 <li><strong>Gameplay:</strong>
 A paragraph describing the actions the player can perform, the system dynamics, and the core mechanic. Include a concise explanation of the prototype’s inputs and their expected effects (how to play). You can also describe game play that is not in the prototype. You may include mock-up images for parts of the game not in the prototype.
-<li> The player can control the angle of a cannon and fire saw blades to kill insects who are attacking a house. The core mechanic is the acceleration of the insects towards other objects. I initally planned for the player to control two cannons and defend three houses. Maybe next time I will do that and include different ammo types and power ups.
-<li> Controls:
-<li> Rotate counterclockwise: Left arrow 
-<li> Rotate clockwise: Right arrow
-<li> Shoot: Spacebar
+<li> The player used the mouse to click on the correct answer to the question. The game will ask 10 questions at random and the player wins if the get >6 right.(not implemented yet)
+
 </li>
 
 <li><strong>Strategies:</strong>
 What player strategies do you expect will be effective at playing this game?
-<li>Shoot as fast as possible.
+<li>Googling answers.
 </li>
 
 <li><strong>Story/Setting/Premise:</strong>
 A paragraph about the world your game is set in and who the characters are. What makes the game world and its occupants unique and interesting? Do the tokens represent something? If the game has a backstory, mention it here. If the game is abstract, then say so.
 How will the dramatic tension interact with the gameplay tension?
-<li>There isn't really much in the way of a story to be honest. Shoot the aliens, kill the BEMS. Appreciate Diablo 2's great soundtrack.
+<li> A dystopia where foreigners are allowed to become citizens by memorizing multiple choice questions that citizens don't care to know the answer to. 
 </li>
 
 <li><strong>Target Audience:</strong>
 A single sentence that describes the demographic you're trying to reach.
-<li>Children, or those with the mind of one.
+<li> Those who wish to take the citizenship civics exam.
 </li>
 
 <li><strong>Play Time:</strong>
 How long does your game take to play?
-<li>Until the house is invaded by over 100 maggots.
+<li>Until ten questions are answered.
 </li>
 
 </ul>
