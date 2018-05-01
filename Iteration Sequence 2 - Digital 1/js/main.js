@@ -6,10 +6,16 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game',
 function preload() 
 {
     game.load.image('Flag', 'assets/USAFlag.jpg');
+    game.load.audio('banner','assets/StarSpangledBanner.mp3');
+    game.load.audio('bell','assets/bell.mp3')
+    game.load.audio('water','assets/waterdroplet.wav')
 }
 
-var clicks = 0;
+var counter = 0;
+var correct = 0;
 var spacing = 0;
+var bellAudio;
+var waterAudio;
 var question = {
     question: 'Who is the father of our country?',
     answer1: ['George Washington',true],
@@ -37,6 +43,11 @@ function create()
     createAnswers(question.answer2);
     createAnswers(question.answer3);
 
+    var music = game.add.audio('banner',0.25);
+    music.play();
+    waterAudio = game.add.audio('water');
+    bellAudio = game.add.audio('bell');
+
 }
 
 function update() {
@@ -58,18 +69,20 @@ function out(item) {
 function down(item) {
 
     item.fill = "#ffff44";
+    waterAudio.play();
 }
 
-function up(item,valid) {
+function up1(item) {
 
-    if(valid==true){
-        item.text = "Correct!!";
-        item.fill = "#ffffff";
-    }
-    else{
-         item.text = "Incorrect!"; 
-        }
-    
+    item.text = "Correct!!";
+    item.fill = "#ffffff";
+    bellAudio.play();
+    counter++;
+}
+function up2(item) {
+    item.text = "Incorrect!"; 
+    counter++;
+    correct++;
 }
 
 function createAnswers(answer){
@@ -82,11 +95,11 @@ function createAnswers(answer){
             wordWrapWidth: 800 ,
             strokeThickness: 2
         });
-    enableText(text,answer);
+    enableText(text,answer[1]);
     spacing = spacing+100;
 }
 
-function enableText(text,answer) {
+function enableText(text,verify) {
 
     text.anchor.set(0.5);
 
@@ -98,5 +111,12 @@ function enableText(text,answer) {
     text.events.onInputOut.add(out, this);
 
     text.events.onInputDown.add(down, this);
-    text.events.onInputUp.add(up,this);
+
+    if(verify==true){
+        text.events.onInputUp.add(up1,this);
+    }
+    else{
+        text.events.onInputUp.add(up2,this);
+    }
+
 }
