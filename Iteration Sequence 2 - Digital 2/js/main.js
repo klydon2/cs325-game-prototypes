@@ -123,7 +123,7 @@ function update() {
         questionsAsked++;
     }
 
-    if(questionsAnswered == 10)
+    if(questionsAnswered == 10 && correct !=6)
     {
         killAll();
         
