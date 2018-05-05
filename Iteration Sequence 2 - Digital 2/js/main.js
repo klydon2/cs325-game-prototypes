@@ -194,7 +194,7 @@ function up2(item) {
 function createAnswers(answer){
     var text = game.add.text(game.world.centerX, game.world.centerY+spacing, answer[0], 
         { 
-            font: "bold 50px Times New Roman ",
+            font: "bold 40px Times New Roman ",
             fill: "#ffff44",
             align: "center",
             wordWrap: true,
